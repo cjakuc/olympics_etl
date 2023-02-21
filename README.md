@@ -7,7 +7,7 @@ The Frefect flows and associated code to run the ETL can be found in `/prefect_f
 Some example analysis can be found in `/analysis`.
 
 ## Running locally
-To easily run this project locally, first clone the repository and download the VS Code extension, (Dev Containers)[https://code.visualstudio.com/docs/devcontainers/create-dev-container]. Create a .env file in the root directory with the following secrets:
+To easily run this project locally, first clone the repository and download the VS Code extension, [Dev Containers](https://code.visualstudio.com/docs/devcontainers/create-dev-container). Create a .env file in the root directory with the following secrets:
 - AWS_ACCESS_KEY_ID
 - AWS_SECRET_ACCESS_KEY
 - POSTGRES_USER
@@ -21,3 +21,7 @@ This requires an AWS account with an S3 bucket called 'raw-csv-storage', with a 
 Then, via the command pallet in VS Code (command + p by default), type '>' and run 'Rebuild in Container'. Once the containers are up and running, you can run `python3 prefect_flows/olympics_etl.py` in the dev container terminal to run the pipeline. Use a database query tool of your choice to query the local PostgreSQL instance on port 5432 to see the results.
 
 You can also deploy the Prefect pipeline to run on an hourly schedule by running `python3 prefect_flows/deploy.py`.
+
+## Entity Relationship Diagram
+
+![This is an image](dbschema.png)
