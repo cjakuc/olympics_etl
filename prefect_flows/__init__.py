@@ -1,3 +1,5 @@
 import awscredentials
-import olympics_etl
+import main
 import utilities
+import olympics_transform
+import manage_db

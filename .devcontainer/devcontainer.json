@@ -1,0 +1,10 @@
+{
+    "name": "Olympics ETL Project Dev Container",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "dev",
+    "workspaceFolder": "/workspaces/olympics_etl",
+    // "image": "91c7841bd79ddaa671ac1ae13d406799a57f4a306ad414f770c8460fcccb9d7b"
+    // "image": "prefecthq/prefect",
+    // "build": { "dockerfile": "Dockerfile" }
+    "forwardPorts": [5432]
+}

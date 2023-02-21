@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  dev:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ../..:/workspaces:cached
+    # Overrides default command so continues running after the process ends.
+    command: sleep infinity
+    # Runs dev on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
+    network_mode: service:db
+
+  db:
+    image: postgres:latest
+    restart: unless-stopped
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    # Bring in secrets from .env file in root directory
+    env_file:
+      - ../.env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    # Do have to pass through this port so it works with WSL or VS Code dev containers
+    ports:
+      - 5432:5432
+
+volumes:
+  postgres-data:
