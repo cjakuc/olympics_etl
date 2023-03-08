@@ -18,7 +18,7 @@ If running on WSL, use `wsl hostname -I` in PowerShell to get IP address for POS
 
 This requires an AWS account with an S3 bucket called `raw-csv-storage`, with a sub-directory called `raw-olympics`, CSV files stored in that directory, and an AWS access key with read permissions on that bucket.
 
-Then, via the command pallet in VS Code (command + p by default), type '>' and run 'Rebuild in Container'. Once the containers are up and running, you can run `python3 prefect_flows/olympics_etl.py` in the dev container terminal to run the pipeline. Use a database query tool of your choice to query the local PostgreSQL instance on port 5432 to see the results.
+Then, via the command pallet in VS Code (command + p by default), type '>' and run 'Rebuild in Container'. Once the containers are up and running, you can run `python3 prefect_flows/main.py` in the dev container terminal to run the pipeline. Use a database query tool of your choice to query the local PostgreSQL instance on port 5432 to see the results.
 
 You can also deploy the Prefect pipeline to run on an hourly schedule by running `python3 prefect_flows/deploy.py`.
 
